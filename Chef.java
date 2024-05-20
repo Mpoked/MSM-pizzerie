@@ -8,12 +8,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Chef extends Actor
 {
-    /**
-     * Act - do whatever the Chef wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    GreenfootImage Pizza = new GreenfootImage("tělo-pizza-right.png");
+    GreenfootImage Telo = new GreenfootImage("tělo-right.png");
+    
+    private boolean pizzaTesto = false;
+    private boolean pizza = false;
     private int zd = 0;
     public void act()
+    {
+        pohyb();
+        pizza();
+    }
+    public void pohyb()
     {
         if(isTouching(Zed.class)){
             zd = 1;
@@ -24,17 +30,14 @@ public class Chef extends Actor
         if(Greenfoot.isKeyDown("a") & zd == 0){
             setRotation(180);
             move(2);
-            setRotation(0);
         }
         if(Greenfoot.isKeyDown("s")){
             setRotation(90);
             move(2);
-            setRotation(0);
         }
         if(Greenfoot.isKeyDown("w")){
             setRotation(-90);
             move(2);
-            setRotation(0);
         }
         if(Greenfoot.isKeyDown("d")){
             setRotation(0);
@@ -42,7 +45,15 @@ public class Chef extends Actor
         }
 
     }
-
+    public void pizza()
+    {
+        if (isTouching(Storage.class) && Greenfoot.isKeyDown("space"))
+        {
+            setImage(Pizza);
+        }
+    }
+    public void zmenaObrazku()
+    {
         
-    
+    }
 }

@@ -69,7 +69,7 @@ public class Podlaha extends World
             zkCount = 100;
         
         }
-     System.out.println(zkCount);
+     
 
     }
 }
