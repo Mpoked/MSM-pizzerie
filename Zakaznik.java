@@ -8,98 +8,90 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Zakaznik extends Actor
 {
- 
-       
-    private static boolean z1 = false;
-    private static boolean z2 = false;
-    private static boolean z3 = false;
-    private static boolean z4 = false;
-    private int sitPlace = Greenfoot.getRandomNumber(1)+1;
-    public Zakaznik(){
-
-
+    private int poradiStolu;
+    private boolean odchod = false;
+    private Actor casovac2; 
+    public Zakaznik(int poradi, Actor timer)
+    {
+        poradiStolu = poradi;
     }
     public void act()
     {
-        posadit();
-        
-        
-
-        
+        poradiStolu1();
+        poradiStolu2();
+        poradiStolu3();
+        poradiStolu4();
+        odchod();
+        metodaCasovac();
         
         
     }
-    private void posadit(){
-        if(sitPlace == 1){
-            if(getX() < 280){
-                if(getY() > 90){
-                setRotation(0);
+    public void poradiStolu1()
+    {
+        if (poradiStolu == 1 && !isTouching(Zidle.class) && odchod == false)
+        {
+            turnTowards(280, 90);
                 move(2);
-                }
-                else{
-                    setRotation(90);    
-                    move(5);
-                    setRotation(0);
-                }
-            }
-            else{
-    
-            }
-            z1 = true;
+                setRotation(0);
         }
-        
-        if(sitPlace == 2){
-            if(getX() < 280){
-                if(getY() > 190){
-                setRotation(0);
+    }
+    public void poradiStolu2()
+    {
+        if (poradiStolu == 2 && !isTouching(Zidle.class) && odchod == false)
+        {
+            turnTowards(280, 190);
                 move(2);
-                }
-                else{
-                    setRotation(90);    
-                    move(5);
-                    setRotation(0);
-                }
-            }
-            else{
-    
-            }
-            z2 = true;
+                setRotation(0);
         }
-        
-        if(sitPlace == 3){
-            if(getX() < 280){
-                if(getY() > 290){
-                setRotation(0);
+    }
+    public void poradiStolu3()
+    {
+        if (poradiStolu == 3 && !isTouching(Zidle.class) && odchod == false)
+        {
+            turnTowards(280, 290);
                 move(2);
-                }
-                else{
-                    setRotation(90);    
-                    move(5);
-                    setRotation(0);
-                }
-            }
-            else{
-    
-            }
-            z3 = true;
+                setRotation(0);
         }
-        
-        if(sitPlace == 4){
-            if(getX() < 280){
-                if(getY() > 390){
-                setRotation(0);
+    }
+    public void poradiStolu4()
+    {
+        if (poradiStolu == 4 && !isTouching(Zidle.class) && odchod == false)
+        {
+            turnTowards(280, 390);
                 move(2);
-                }
-                else{
-                    setRotation(90);    
-                    move(5);
-                    setRotation(0);
-                }
-            }
-            else{
+                setRotation(0);
+        }
+    }
     
-            }
-            z4 = true;
+    public void odchod()
+    {
+        if (isTouching(Odejdi.class))
+        {
+            
+            odchod = true;
+        }
+        if (odchod == true)
+        {
+            turnTowards(0, 222);
+            move(2);
+            setRotation(0);
+        }
+        if (getX() == 0 && getY() == 222)
+        {
+            odchod = false;
+        }
+        if (isAtEdge())
+        {
+            setLocation(60, 0);
+            
+        }
+    }
+    
+    public void metodaCasovac()
+    {
+        if (getX() == 20)
+        {
+            Timer.casovacT += 600;
         }
     }
 }

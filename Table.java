@@ -12,13 +12,13 @@ public class Table extends Actor
      * Act - do whatever the Table wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Table(){
-        GreenfootImage image = getImage();
-        image.scale(80,80);
-        setImage(image);
-    }
     public void act()
     {
         // Add your action code here.
+    }
+    public Table(){
+        GreenfootImage image = getImage();
+        image.scale(100,420);
+        setImage(image);
     }
 }

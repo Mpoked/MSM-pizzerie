@@ -16,22 +16,11 @@ public class Pizza extends Actor
     public void act()
     {
 
-        pick();
+ 
         
         
         
     }
 
-    public void pick(){
 
-        //Chef chef = new Chef();
-            
-       // chefX = chef.getX();
-       // chefY = chef.getY();
-        
-        
-       // if(getX() - chefX < 50 & Greenfoot.isKeyDown("space")){
-         //   System.out.println("kk");
-        //}
-    }
 }

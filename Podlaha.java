@@ -24,52 +24,52 @@ public class Podlaha extends World
     {
         Zed zed = new Zed();
         addObject(zed,325,250);
-        
 
         Zidle zidle = new Zidle();
-        addObject(zidle,280,100);
+        addObject(zidle,320,100);
 
         Zidle zidle2 = new Zidle();
-        addObject(zidle2,280,200);
+        addObject(zidle2,320,200);
 
         Zidle zidle3 = new Zidle();
-        addObject(zidle3,280,300);
+        addObject(zidle3,320,300);
 
         Zidle zidle4 = new Zidle();
-        addObject(zidle4,280,400);
+        addObject(zidle4,320,400);
 
-        
-        
         Pec pec = new Pec();
         addObject(pec,710,40);
-
-        Pec pec2 = new Pec();
-        addObject(pec2,710,120);
-
-        Table table = new Table();
-        addObject(table,710,200);
-
-        Storage storage = new Storage();
-        addObject(storage,710,360);
-
         
+        addObject(new Table(), 720, 290);
+
         Chef chef = new Chef();
         addObject(chef,600,250);
-        
-        
-        Pizza pizza = new Pizza();
-        addObject(pizza,710,360);
-    }
-    private int zkCount = 0;
-    public void act(){
-        zkCount ++;
-        if (zkCount == Greenfoot.getRandomNumber(10)+5){
-            Zakaznik zak = new Zakaznik();
-            addObject(zak,150,0);
-            zkCount = 100;
-        
-        }
-     
 
+        Pizza pizza = new Pizza();
+        addObject(pizza,693,460);
+
+        addObject(new Syr() , 693, 322);
+        addObject(new Omacka(), 695, 170);
+
+        addObject(new Dvere(0), 44, 24); 
+        addObject(new Dvere(270), 25, 235);
+        
+        Timer timer = new Timer();
+        addObject(timer, 420, 20);
+
+        int poziceStolu = 100;
+        for (int i = 0; i < 4; i++)
+        {
+            addObject(new PizzaPlace1(poziceStolu),325,poziceStolu);
+            poziceStolu += 100;
+        }
+        
+
+        int zakaznikCislo = 1;
+        for (int i = 0; i < 4; i++)
+        {
+            addObject(new Zakaznik(zakaznikCislo, timer), 50, 0);
+            zakaznikCislo++;
+        }
     }
 }
